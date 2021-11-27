@@ -40,7 +40,6 @@ class Game{
                 form.hide();
 
                 Player.getPlayerInfo();
-                player.getPlayerAtEnd();
                  image(back_img, 0, 0, 1000, 800);
                  var x =100;
                  var y=200;
@@ -58,9 +57,9 @@ class Game{
                        
                      if(index === player.index){
                          
-                         fill("red");
-                         textSize(20);
-                         // add code to display the player name on the respective basket
+                         fill("black");
+                         textSize(25);
+                         text(allPlayers[plr].name ,x-25,y+25);
 
                          
                      }
@@ -72,14 +71,7 @@ class Game{
                  
                  }
                 
-                if(player.score>=5){
-                    gameState = 2; 
-                    player.rank += 1;
-                    Player.updatePlayerAtEnd(player.rank);
-                    player.update();
-                    this.showRank();
-                    
-                }
+                
                  
 
                 if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
@@ -130,19 +122,8 @@ class Game{
          
 
     }
-    showRank() {
-        alert("Awesome !! You finished the game! You rank is :" +player.rank)
-      }
 
-gameOver() {
-    textSize(40)
-    fill("white")
- text("GAME OVER",displayWidth/2-400,displayHeight/2-200)
-    }
-    
     end(){
        console.log("Game Ended");
-       console.log(player.rank)
-       this.gameOver();
     }
 }
